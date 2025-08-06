@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>デジタルスタンプラリー</title>
+
+    <!-- ★★★ この1行でスマートフォン表示が最適化されます ★★★ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      /* COMPLETEメッセージのスタイル */
+      #complete-message {
+        display: none;
+        position: fixed;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        color: red;
+        font-size: 3em;
+        font-weight: bold;
+        text-align: center;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgb(255, 0, 0);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .checkbox-group label {
+        margin-right: 1rem;
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>住宅展示場マップ</h1>
+
+    <div id="map">
+      <!-- モデルハウスはここに追加していきます -->
+    </div>
+
+    <input type="text" id="stampInput" placeholder="ここに文字を入力">
+    <button id="submitStamp">スタンプする</button>
+
+    <!-- ✅ COMPLETEメッセージの表示領域 -->
+    <div id="complete-message">COMPLETE</div>
+
+    <!-- ✅ アンケートフォームのコンテナ -->
+    <div id="survey-container" style="display: none;">
+      <div id="survey-form">
+        <h2>アンケートにご協力ください</h2>
+        <p>今後のサービス向上のために、3つの質問にお答えください。</p>
+        
+        <form id="actual-form">
+          <!-- Q1 -->
+          <div class="form-group">
+            <label for="favoriteHouse">Q1. ご見学された中で一番気に入ったモデルハウスはどこですか？</label>
+            <input type="text" id="favoriteHouse" name="q1" required>
+          </div>
+          
+          <!-- Q2 -->
+          <div class="form-group">
+            <label>Q2. モデルハウスで一番印象に残ったものは？（複数回答可）</label>
+            <div class="checkbox-group">
+              <input type="checkbox" id="point1" name="q2" value="外観"><label for="point1">外観</label>
+              <input type="checkbox" id="point2" name="q2" value="構造"><label for="point2">構造</label>
+              <input type="checkbox" id="point3" name="q2" value="性能"><label for="point3">性能</label>
+              <input type="checkbox" id="point4" name="q2" value="リビング"><label for="point4">リビング</label>
+              <input type="checkbox" id="point5" name="q2" value="ダイニング"><label for="point5">ダイニング</label>
+              <input type="checkbox" id="point6" name="q2" value="キッチン"><label for="point6">キッチン</label>
+              <input type="checkbox" id="point7" name="q2" value="寝室"><label for="point7">寝室</label>
+              <input type="checkbox" id="point8" name="q2" value="子供部屋"><label for="point8">子供部屋</label>
+              <input type="checkbox" id="point9" name="q2" value="和室"><label for="point9">和室</label>
+              <input type="checkbox" id="point10" name="q2" value="書斎"><label for="point10">書斎</label>
+              <input type="checkbox" id="point11" name="q2" value="収納"><label for="point11">収納</label>
+              <input type="checkbox" id="point12" name="q2" value="バスルーム"><label for="point12">バスルーム</label>
+              <input type="checkbox" id="point13" name="q2" value="玄関"><label for="point13">玄関</label>
+              <input type="checkbox" id="point14" name="q2" value="バルコニー"><label for="point14">バルコニー</label>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="form-group">
+            <label for="goodStaff">Q3. 対応の良かったハウスメーカーまたは担当者をご入力ください。</label>
+            <textarea id="goodStaff" name="q3" rows="3"></textarea>
+          </div>
+          
+          <button type="submit" id="submit-survey">アンケートを送信</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ✅ 送信完了メッセージ -->
+    <div id="thanks-message" style="display: none;">
+      <p>ご協力ありがとうございました！</p>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* 入力フォームとボタン */
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 600px;
+}
+
+#stampInput {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-grow: 1; /* 空きスペースを埋める */
+}
+
+#submitStamp {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* マップ画像 */
+#map {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1 / 1; /* 縦横比を1:1(正方形)に設定 */
+  position: relative;
+  background-image: url("/digital-stamp-rally_map.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* モデルハウス配置 */
+.house {
+  position: absolute;
+  width: 8%;
+  padding-bottom: 8%;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid #333;
+  border-radius: 50%;
+  box-sizing: border-box;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+  font-weight: bold;
+}
+
+/* スタンプが押された状態 */
+.stamped {
+  background-image: url("/stamp.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+}
+.stamped span {
+  display: none; /* スタンプ時は文字を消す */
+}
+
+/* スマホ専用スタイル */
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #stampInput,
+  #submitStamp {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .house {
+    font-size: 2.5vw;
+  }
+}
+
+/* ===== アンケートフォームのスタイル ===== */
+#survey-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+#survey-form {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-height: 80vh; /* 高さが画面を超えないように */
+  overflow-y: auto; /* 超えた場合はスクロール */
+}
+
+#survey-form h2 {
+  margin-top: 0;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#submit-survey {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.checkbox-group label {
+  margin-right: 1rem;
+  font-weight: normal;
+  display: inline-block; /* チェックボックスとラベルの縦位置を揃える */
+}
+.checkbox-group input {
+  vertical-align: middle;
+}
+
+/* ===== 送信完了メッセージのスタイル ===== */
+#thanks-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #28a745;
+  color: white;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  z-index: 3000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}

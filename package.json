@@ -1,0 +1,22 @@
+{
+  "name": "digital-stamp-rally",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "vite",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vite": "^5.3.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "google-auth-library": "^9.11.0",
+    "google-spreadsheet": "^4.1.2"
+  }
+}

@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* 入力フォームとボタン */
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+#input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+#submit {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+/* マップ画像 */
+#map {
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  position: relative;
+  background-image: url("/digital-stamp-rally_map.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  aspect-ratio: 3 / 2;
+}
+
+/* モデルハウス配置 */
+.house {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid #333;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* スタンプが押された状態 */
+.stamped {
+  background-image: url("/stamp.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+}
+
+/* スマホ専用スタイル */
+@media (max-width: 600px) {
+  #map {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #input,
+  #submit {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .house {
+    width: 32px;
+    height: 32px;
+    font-size: 0.6rem;
+    line-height: 32px;
+  }
+}
